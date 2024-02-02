@@ -23,9 +23,12 @@ else
         SONG2.stop
         SONG.play
         @win_image.remove
+    else
+        SONG.stop
     end
 end
 
+SONG.play
 @square1 = Rectangle.new(
     x: -500, y: 0,
     width: 1, height: 1,
