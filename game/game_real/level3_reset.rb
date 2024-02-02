@@ -1,4 +1,5 @@
 def when_update_level_3
+    
     @liv = 3
     @sprite.add
     @sprite.x = ((Window.width  - @square_size) + ((@square_size - @sprite_storlek) / 2))

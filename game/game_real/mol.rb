@@ -49,7 +49,18 @@ def when_hit_mol
                 )
             end
         elsif @game_status == 3
-            @win_image = Image.new('filer/win.jpg', x: 0, y:0, width: 1100, height: 700)
+            @win_image = Image.new('filer/win.jpg', x: 0, y:0, width: 1100, height: 700, z:75)
+            @text2.remove
+            @text2 = Text.new(
+                "#{@tid}",
+                x: (Window.width / 2) - 50,
+                y: (Window.height / 2) + 175,
+                font: @font,
+                size: 100,
+                color: @text_color,
+                z:100
+            )  
+
             @square1.remove
             @square2.remove
             SONG.stop

@@ -1,4 +1,5 @@
-def when_update_level_1    
+def when_update_level_1  
+      
     @restart_button_1.remove
     @restart_button_2.remove
     @restart_button_3.remove

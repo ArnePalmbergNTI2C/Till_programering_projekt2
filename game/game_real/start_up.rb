@@ -14,14 +14,14 @@ def start_up
 
     @font = 'filer/text.ttf'
     @text_size = 40
-    @score_text_x = 1058
+    @score_text_x = 1061
     @score_text_y = 60
     @text_color = 'yellow'
     
     @restart_game = false
 
-    @max_score1 = 5
-    @max_score2 = 5
+    @max_score1 = 1
+    @max_score2 = 1
     @liv = 3
 
     @radius_angry_balls = 10
@@ -85,5 +85,19 @@ def start_up
         Red_balls.new(1000, rand(minstspeed..maxspeed), 10, 0, @game_status, 10),
 
     ]
+    @time = Time.now.to_i
+    @tid = 0
+    @tid_udda_eller_even = true
+    @text2 = Text.new(
+        "#{@tid}",
+        x: (Window.width / 2) - 20,
+        y: 25,
+        font: @font,
+        size: 40,
+        color: @text_color,
+        z:100
+
+    )
+
     
 end

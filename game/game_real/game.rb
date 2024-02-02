@@ -1,5 +1,4 @@
 #fixa koden snyggt
-#gubben i väggen
 
 require 'ruby2d'
 require_relative 'start_up.rb'
@@ -12,6 +11,8 @@ require_relative 'level2_reset.rb'
 require_relative 'level3_reset.rb'
 require_relative 'ball_movement.rb'
 require_relative 'game_reset.rb'
+require_relative 'timer.rb'
+
 
 set background: 'navy'
 set title: 'filer/Biggie cheese.io'
@@ -66,6 +67,10 @@ class Game
     def reset_hole_game
         game_reset
     end
+
+    def timer
+        time
+    end
     
 end
 
@@ -77,7 +82,6 @@ class Red_balls
         @y_speed = upp_ner
         @x_speed = sida
         @game_status = game_status
-        @radius_angry_balls = 
         @angry_balls = Circle.new(
         x: bredd,
         y: start,
@@ -100,14 +104,14 @@ on :key_held do |event|
 
     case event.key
         when 'w'
-            if game.sprite.y > -2
+            if game.sprite.y > 3
                 game.sprite.y -= speed
                 game.sprite.play
             else
                 game.sprite.play
             end
         when 's'
-            if game.sprite.y < (Window.height - game.sprite.width + 2)
+            if game.sprite.y < (Window.height - game.sprite.width - 2)
                 game.sprite.y += speed
                 game.sprite.play
             else
@@ -160,7 +164,7 @@ update do
     game.hitt_red_ball
     game.ending
     game.hit_block
-
+    game.timer
 end
 
 show
