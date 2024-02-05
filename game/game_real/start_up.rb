@@ -20,8 +20,8 @@ def start_up
     
     @restart_game = false
 
-    @max_score1 = 1
-    @max_score2 = 1
+    @max_score1 = 3
+    @max_score2 = 3
     @liv = 3
 
     @radius_angry_balls = 10

@@ -1,5 +1,3 @@
-#fixa koden snyggt
-
 require 'ruby2d'
 require_relative 'start_up.rb'
 require_relative 'mol.rb'
