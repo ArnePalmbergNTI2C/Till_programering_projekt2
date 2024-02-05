@@ -10,7 +10,7 @@ require_relative 'level3_reset.rb'
 require_relative 'ball_movement.rb'
 require_relative 'game_reset.rb'
 require_relative 'timer.rb'
-
+require_relative 'inga_liv.rb'
 
 set background: 'navy'
 set title: 'filer/Biggie cheese.io'
@@ -62,12 +62,16 @@ class Game
         when_update_level_3
     end
 
-    def reset_hole_game
+    def reset_whole_game
         game_reset
     end
 
     def timer
         time
+    end
+
+    def liv
+        inga_liv
     end
     
 end
@@ -97,47 +101,49 @@ end
 game = Game.new
 
 on :key_held do |event|
-    speed = 5
-    if game.restart_game == false
+    speed = 10
 
     case event.key
+        
+    when 'backspace'
+        game.reset_whole_game
+    end
+    
+    if game.restart_game == false
+
+        case event.key
+
         when 'w'
+            game.sprite.play
+
             if game.sprite.y > 3
                 game.sprite.y -= speed
-                game.sprite.play
-            else
-                game.sprite.play
             end
         when 's'
+            game.sprite.play
+
             if game.sprite.y < (Window.height - game.sprite.width - 2)
                 game.sprite.y += speed
-                game.sprite.play
-            else
-                game.sprite.play
             end
         when 'a'
+            game.sprite.play flip: :horizontal
             if game.sprite.x > 2
-                game.sprite.play flip: :horizontal
                 game.sprite.x -= speed
-            else
-                game.sprite.play
             end
         when 'd'
             game.sprite.play
             if game.sprite.x < (Window.width - (game.sprite_storlek + 5))
                 game.sprite.x += speed
             end
-        when 'backspace'
-            game.reset_hole_game
         end
-
+    
     end
 end
 
 
 on :mouse_down do |event|
     if game.restart_button_0.contains?(event.x, event.y)
-        game.reset_hole_game
+        game.reset_whole_game
     end
 
     if game.restart_game == true
@@ -163,6 +169,7 @@ update do
     game.ending
     game.hit_block
     game.timer
+    game.liv
 end
 
 show

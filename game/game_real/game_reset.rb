@@ -1,10 +1,10 @@
 def game_reset
 
     @time = Time.now.to_i
-    @tid = 0
-    @text2.remove
-    @text2 = Text.new(
-        "#{@tid}",
+    @tid_screen = 0
+    @text_tid.remove
+    @text_tid = Text.new(
+        "#{@tid_screen}",
         x: (Window.width / 2) - 20,
         y: 25,
         font: @font,
@@ -18,8 +18,6 @@ def game_reset
         @restart_button_1.remove
         @restart_button_2.remove
         @restart_button_3.remove
-
-
     else
         @sprite.remove
         @balls.each do |red_balls|
@@ -30,30 +28,29 @@ def game_reset
         @heart1.remove
         @heart2.remove
         @heart3.remove
-        @square1.remove
-        @square2.remove
         @text.remove
         if @game_status == 4
             SONG2.stop
             SONG.play
             @win_image.remove
+            @rectangle1.remove
+            @rectangle2.remove
         else
             SONG.stop
         end
     end
 
     SONG.play
-    @square1 = Rectangle.new(
+    @rectangle1 = Rectangle.new(
         x: -500, y: 0,
         width: 1, height: 1,
     )
-    @square2 = Rectangle.new(
+    @rectangle2 = Rectangle.new(
         x: -500, y: 0,
         width: 10, height: 1,
     )
     @game_status = 1
 
-    @restart_game = false
 
     @liv = 3
 
@@ -112,5 +109,6 @@ def game_reset
         Red_balls.new(1000, rand(minstspeed..maxspeed), 10, 0, @game_status, 10),
 
     ]
+    @restart_game = false
 
 end
