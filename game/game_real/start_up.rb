@@ -1,13 +1,13 @@
 def start_up
 
-    start_up_variabels
+    start_up_variabel
     start_up_things
     start_up_text
     start_up_tid
 
 end
 
-def start_up_variabels
+def start_up_variabel
 
     @restart_button_size = 100
 
@@ -17,16 +17,16 @@ def start_up_variabels
     @game_status = 1
     
     @restart_game = false
+    @info_status = false
 
-    @max_score1 = 3
-    @max_score2 = 3
+    @max_score1 = 1
+    @max_score2 = 1
 
     @liv = 3
 
     @radius_angry_balls = 10
 
     @score = 0
-    @score2 = -1
 
 end
 
@@ -37,7 +37,7 @@ def start_up_things
     @heart2 = Image.new('filer/heart.png', x: (Window.width - (@heart_size * 2) - 20), y: 10, width: @heart_size, height: @heart_size, z: 5)
     @heart3 = Image.new('filer/heart.png', x: (Window.width - (@heart_size * 3) - 30), y: 10, width: @heart_size, height: @heart_size, z: 5)
 
-    @restart_button_0 = Image.new('filer/restart.png',  width: 20, height: 20, x: 5, y: 5, z:100)
+    @restart_button_0 = Image.new('filer/restart.png',  width: 20, height: 20, x: 2, y: 2, z:100)
 
     @square_size = 50
     @start = Square.new(
@@ -58,31 +58,8 @@ def start_up_things
     @sprite_storlek = 25
     @sprite = Sprite.new('filer/hero.png', clip_width: 214, height: @sprite_storlek, width: @sprite_storlek, y: ((Window.height / 2 ) - @sprite_storlek / 2 ), x: ((@square_size - @sprite_storlek) / 2), z: 2)
 
-    maxspeed = 10
-    minstspeed = 5
-    @balls = [
-        Red_balls.new(100, rand(minstspeed..maxspeed), 10, 0, @game_status, 10),
-        Red_balls.new(150, rand(-maxspeed..-minstspeed), Window.height-10, 0, @game_status, 10),
-        Red_balls.new(200, rand(minstspeed..maxspeed), 10, 0, @game_status, 10),
-        Red_balls.new(250, rand(-maxspeed..-minstspeed), Window.height-10, 0, @game_status, 10),
-        Red_balls.new(300, rand(minstspeed..maxspeed), 10, 0, @game_status, 10),
-        Red_balls.new(350, rand(-maxspeed..-minstspeed), Window.height-10, 0, @game_status, 10),
-        Red_balls.new(400, rand(minstspeed..maxspeed), 10, 0, @game_status, 10),
-        Red_balls.new(450, rand(-maxspeed..-minstspeed), Window.height-10, 0, @game_status, 10),
-        Red_balls.new(500, rand(minstspeed..maxspeed), 10, 0, @game_status, 10),
-        Red_balls.new(550, rand(-maxspeed..-minstspeed), Window.height-10, 0, @game_status, 10),
-        Red_balls.new(600, rand(minstspeed..maxspeed), 10, 0, @game_status, 10),
-        Red_balls.new(650, rand(-maxspeed..-minstspeed), Window.height-10, 0, @game_status, 10),
-        Red_balls.new(700, rand(minstspeed..maxspeed), 10, 0, @game_status, 10),
-        Red_balls.new(750, rand(-maxspeed..-minstspeed), Window.height-10, 0, @game_status, 10),
-        Red_balls.new(800, rand(minstspeed..maxspeed), 10, 0, @game_status, 10),
-        Red_balls.new(850, rand(-maxspeed..-minstspeed), Window.height-10, 0, @game_status, 10),
-        Red_balls.new(900, rand(minstspeed..maxspeed), 10, 0, @game_status, 10),
-        Red_balls.new(950, rand(-maxspeed..-minstspeed), Window.height-10, 0, @game_status, 10),
-        Red_balls.new(1000, rand(minstspeed..maxspeed), 10, 0, @game_status, 10),
-
-    ]
-
+    balls
+    
 end
 
 def start_up_text

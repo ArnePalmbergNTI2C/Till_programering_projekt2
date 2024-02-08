@@ -5,6 +5,8 @@ def when_update_level_1
     add_when_update_level_1
     balls_when_update_level_1
 
+    score_text_reset
+
 end
 
 def variabel_when_update_level_1
@@ -17,10 +19,8 @@ end
 
 def remove_when_update_level_1
 
-    @restart_button_1.remove
-    @restart_button_2.remove
-    @restart_button_3.remove
-    @text.remove
+    @restart_button.remove
+
 end
 
 def position_when_update_level_1
@@ -40,42 +40,12 @@ def add_when_update_level_1
     @heart1.add
     @heart2.add
     @heart3.add
-    @text = Text.new(
-        "#{@score}",
-        x: @score_text_x,
-        y: @score_text_y,
-        font: @font,
-        size: @text_size,
-        color: @text_color,
-    )
-
+    
 end
 
 
 def balls_when_update_level_1
-    maxspeed = 10
-    minstspeed = 5 
-    @balls = [
-        Red_balls.new(100, rand(minstspeed..maxspeed), 10, 0, @game_status, 10),
-        Red_balls.new(150, rand(-maxspeed..-minstspeed), Window.height-10, 0, @game_status, 10),
-        Red_balls.new(200, rand(minstspeed..maxspeed), 10, 0, @game_status, 10),
-        Red_balls.new(250, rand(-maxspeed..-minstspeed), Window.height-10, 0, @game_status, 10),
-        Red_balls.new(300, rand(minstspeed..maxspeed), 10, 0, @game_status, 10),
-        Red_balls.new(350, rand(-maxspeed..-minstspeed), Window.height-10, 0, @game_status, 10),
-        Red_balls.new(400, rand(minstspeed..maxspeed), 10, 0, @game_status, 10),
-        Red_balls.new(450, rand(-maxspeed..-minstspeed), Window.height-10, 0, @game_status, 10),
-        Red_balls.new(500, rand(minstspeed..maxspeed), 10, 0, @game_status, 10),
-        Red_balls.new(550, rand(-maxspeed..-minstspeed), Window.height-10, 0, @game_status, 10),
-        Red_balls.new(600, rand(minstspeed..maxspeed), 10, 0, @game_status, 10),
-        Red_balls.new(650, rand(-maxspeed..-minstspeed), Window.height-10, 0, @game_status, 10),
-        Red_balls.new(700, rand(minstspeed..maxspeed), 10, 0, @game_status, 10),
-        Red_balls.new(750, rand(-maxspeed..-minstspeed), Window.height-10, 0, @game_status, 10),
-        Red_balls.new(800, rand(minstspeed..maxspeed), 10, 0, @game_status, 10),
-        Red_balls.new(850, rand(-maxspeed..-minstspeed), Window.height-10, 0, @game_status, 10),
-        Red_balls.new(900, rand(minstspeed..maxspeed), 10, 0, @game_status, 10),
-        Red_balls.new(950, rand(-maxspeed..-minstspeed), Window.height-10, 0, @game_status, 10),
-        Red_balls.new(1000, rand(minstspeed..maxspeed), 10, 0, @game_status, 10),
- 
-    ]
+  
+    balls
 
 end

@@ -1,114 +1,123 @@
-def game_reset
+def when_game_reset
 
-    @time = Time.now.to_i
-    @tid_screen = 0
-    @text_tid.remove
-    @text_tid = Text.new(
-        "#{@tid_screen}",
-        x: (Window.width / 2) - 20,
-        y: 25,
-        font: @font,
-        size: 40,
-        color: @text_color,
-        z:100
+    game_reset_remove
+    game_reset_add
+    game_reset_variabel
+    game_reset_position
+    game_reset_info
 
-    )
 
+end
+
+
+def game_reset_remove
     if @restart_game == true
-        @restart_button_1.remove
-        @restart_button_2.remove
-        @restart_button_3.remove
+
+        @restart_button.remove
+        @restart_game = false
+
     else
-        @sprite.remove
+        
         @balls.each do |red_balls|
             red_balls.angry_balls.remove
         end
+
+        @sprite.remove
         @mol.remove
         @start.remove
+
         @heart1.remove
         @heart2.remove
         @heart3.remove
-        @text.remove
-        if @game_status == 4
+
+        case @game_status
+        when 4 
             SONG2.stop
-            SONG.play
             @win_image.remove
+
+        when 3
             @rectangle1.remove
             @rectangle2.remove
-        else
-            SONG.stop
         end
+
     end
 
+end
+
+def game_reset_add
+
+    tid_reset
     SONG.play
-    @rectangle1 = Rectangle.new(
-        x: -500, y: 0,
-        width: 1, height: 1,
-    )
-    @rectangle2 = Rectangle.new(
-        x: -500, y: 0,
-        width: 10, height: 1,
-    )
+    score_text_reset
+
+    @heart1.add
+    @heart2.add
+    @heart3.add
+
+    @sprite.add
+
+    if @game_status > 2
+
+        @start = Square.new(
+            x: 0,
+            y: ((Window.height / 2 ) - @square_size / 2 ),
+            size: @square_size,
+            color: 'white',
+            z: 0
+        )
+        @mol = Square.new(
+            x: Window.width - @square_size,
+            y: ((Window.height / 2 ) - @square_size / 2 ),
+            size: @square_size,
+            color: 'green',
+            z: 0
+        )
+
+    else
+
+        @mol.add
+        @start.add
+
+    end
+
+end
+
+def game_reset_variabel
+
     @game_status = 1
-
-
     @liv = 3
-
     @score = 0
-    @score2 = -1
+    
+    balls
 
-    @heart1 = Image.new('filer/heart.png', x: (Window.width - (@heart_size * 1) - 10), y: 10, width: @heart_size, height: @heart_size, z: 5)
-    @heart2 = Image.new('filer/heart.png', x: (Window.width - (@heart_size * 2) - 20), y: 10, width: @heart_size, height: @heart_size, z: 5)
-    @heart3 = Image.new('filer/heart.png', x: (Window.width - (@heart_size * 3) - 30), y: 10, width: @heart_size, height: @heart_size, z: 5)
+end
 
 
-    @text = Text.new(
-        "#{@score}",
-        x: @score_text_x,
-        y: @score_text_y,
-        font: @font,
-        size: @text_size,
-        color: @text_color,
-    )
-    @start = Square.new(
-        x: 0,
-        y: ((Window.height / 2 ) - @square_size / 2 ),
-        size: @square_size,
-        color: 'white',
-        z: 0
-    )
-    @mol = Square.new(
-        x: Window.width - @square_size,
-        y: ((Window.height / 2 ) - @square_size / 2 ),
-        size: @square_size,
-        color: 'green',
-        z: 0
-    )
-    @sprite = Sprite.new('filer/hero.png', clip_width: 214, height: @sprite_storlek, width: @sprite_storlek, y: ((Window.height / 2 ) - @sprite_storlek / 2 ), x: ((@square_size - @sprite_storlek) / 2), z: 2)
-    maxspeed = 10
-    minstspeed = 5
-    @balls = [
-        Red_balls.new(100, rand(minstspeed..maxspeed), 10, 0, @game_status, 10),
-        Red_balls.new(150, rand(-maxspeed..-minstspeed), Window.height-10, 0, @game_status, 10),
-        Red_balls.new(200, rand(minstspeed..maxspeed), 10, 0, @game_status, 10),
-        Red_balls.new(250, rand(-maxspeed..-minstspeed), Window.height-10, 0, @game_status, 10),
-        Red_balls.new(300, rand(minstspeed..maxspeed), 10, 0, @game_status, 10),
-        Red_balls.new(350, rand(-maxspeed..-minstspeed), Window.height-10, 0, @game_status, 10),
-        Red_balls.new(400, rand(minstspeed..maxspeed), 10, 0, @game_status, 10),
-        Red_balls.new(450, rand(-maxspeed..-minstspeed), Window.height-10, 0, @game_status, 10),
-        Red_balls.new(500, rand(minstspeed..maxspeed), 10, 0, @game_status, 10),
-        Red_balls.new(550, rand(-maxspeed..-minstspeed), Window.height-10, 0, @game_status, 10),
-        Red_balls.new(600, rand(minstspeed..maxspeed), 10, 0, @game_status, 10),
-        Red_balls.new(650, rand(-maxspeed..-minstspeed), Window.height-10, 0, @game_status, 10),
-        Red_balls.new(700, rand(minstspeed..maxspeed), 10, 0, @game_status, 10),
-        Red_balls.new(750, rand(-maxspeed..-minstspeed), Window.height-10, 0, @game_status, 10),
-        Red_balls.new(800, rand(minstspeed..maxspeed), 10, 0, @game_status, 10),
-        Red_balls.new(850, rand(-maxspeed..-minstspeed), Window.height-10, 0, @game_status, 10),
-        Red_balls.new(900, rand(minstspeed..maxspeed), 10, 0, @game_status, 10),
-        Red_balls.new(950, rand(-maxspeed..-minstspeed), Window.height-10, 0, @game_status, 10),
-        Red_balls.new(1000, rand(minstspeed..maxspeed), 10, 0, @game_status, 10),
+def game_reset_position
 
-    ]
-    @restart_game = false
+    @heart1.x = (Window.width - (@heart_size * 1) - 10)
+    @heart1.y = 10
+    @heart2.x = (Window.width - (@heart_size * 2) - 20)
+    @heart2.y = 10
+    @heart3.x = (Window.width - (@heart_size * 3) - 30)
+    @heart3.y = 10
+
+    @start.x = 0
+    @start.y = ((Window.height / 2 ) - @square_size / 2 )
+
+    @mol.x = Window.width - @square_size
+    @mol.y = ((Window.height / 2 ) - @square_size / 2 )
+    
+    @sprite.x = ((@square_size - @sprite_storlek) / 2)
+    @sprite.y = ((Window.height / 2 ) - @sprite_storlek / 2 )
+
+end
+
+def game_reset_info
+
+    if @info_status == true
+        @info_square.remove
+        @info_status = false
+    end
 
 end

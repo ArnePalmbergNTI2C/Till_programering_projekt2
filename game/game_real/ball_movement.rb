@@ -1,19 +1,17 @@
 def ball_movement
 
-    if @game_status == 1
-
+    case @game_status
+    when 1
         if hit1
             @y_speed = -@y_speed
         end
         @angry_balls.y = (@angry_balls.y + @y_speed)
-    elsif @game_status == 2
-
+    when 2
         if hit2
             @x_speed = -@x_speed
         end
         @angry_balls.x = (@angry_balls.x + @x_speed)
-
-    elsif @game_status == 3
+    when 3
         if hit3
             @y_speed = -@y_speed
         end
@@ -23,6 +21,7 @@ def ball_movement
 end
 
 def hit1
+
     if @y_speed >= 0
     
         @angry_balls.y + 10 >= Window.height
@@ -33,6 +32,7 @@ def hit1
 end
 
 def hit2
+
     if @x_speed >= 0
     
         @angry_balls.x + 10 >= Window.width
@@ -43,6 +43,7 @@ def hit2
 end
 
 def hit3
+    
     if @y_speed >= 0
     
         @angry_balls.y + 10 >= Window.height - 250
