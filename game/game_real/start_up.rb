@@ -4,6 +4,7 @@ def start_up
     start_up_things
     start_up_text
     start_up_tid
+    start_up_info
 
 end
 
@@ -17,10 +18,10 @@ def start_up_variabel
     @game_status = 1
     
     @restart_game = false
-    @info_status = false
+    @info_status = true
 
-    @max_score1 = 1
-    @max_score2 = 1
+    @max_score1 = 5
+    @max_score2 = 5
 
     @liv = 3
 
@@ -77,22 +78,64 @@ def start_up_text
         font: @font,
         size: @text_size,
         color: @text_color,
+        z: 100
     )
 
 end
 
 def start_up_tid
 
+    @text_tid_y = 25
+    @text_tid_size = 40
+
     @time = Time.now.to_i
     @tid_screen = 0
     @tid_udda_eller_even = true
     @text_tid = Text.new(
         "#{@tid_screen}",
-        x: (Window.width / 2) - 20,
-        y: 25,
+        x: (Window.width / 2) - (@text_size / 2),
+        y: @text_tid_y,
         font: @font,
-        size: 40,
+        size: @text_tid_size,
         color: @text_color,
+        z:100
+    )
+
+    @time_status = Time.now.to_i - @time
+
+
+end
+
+def start_up_info 
+
+    @info_screen_width = 800
+    @info_screen_height = 600
+    @x_info_button_width = 25
+    @x_info_button_height = 25
+
+    @info_square = Image.new(
+        'filer/info.png',
+        width: @info_screen_width,
+        height: @info_screen_height,
+        x: (Window.width / 2) - (@info_screen_width / 2),
+        y: (Window.height / 2) - (@info_screen_height / 2),
+        z: 100000,
+    )
+    @x_info_button = Image.new(
+        'filer/x.png',
+        width: @x_info_button_height,
+        height: @x_info_button_height,
+        x: Window.width - ((Window.width - @info_screen_width) / 2) - (@x_info_button_width / 2),
+        y: ((Window.height - @info_screen_height) / 2) - (@x_info_button_height / 2),
+        z:10000000000000000
+    )
+    
+    @info_button = Image.new(
+        'filer/Info_button.png',
+        width: 20,
+        height: 20,
+        x: 25,
+        y: 2,
         z:100
     )
 

@@ -118,10 +118,6 @@ def when_max_score_2_add
 
     SUCCESS.play
 
-    @heart1.add
-    @heart2.add
-    @heart3.add
-
     @sprite.add
 
     @mol = Rectangle.new(
@@ -129,7 +125,7 @@ def when_max_score_2_add
         width: @square_size, height: (@square_size * 2),
         color: 'green',
         z: 0
-        )
+    )
     @start = Rectangle.new(
         x: (Window.width - @square_size), y: Window.height - (@square_size * 2),
         width: @square_size, height: (@square_size * 2),

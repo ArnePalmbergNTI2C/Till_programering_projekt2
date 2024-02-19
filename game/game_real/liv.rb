@@ -17,7 +17,13 @@ end
 def inga_liv
 
     @liv -= 1
-    @restart_button = Image.new('filer/restart.png',  width: @restart_button_size, height: @restart_button_size, x: ((Window.width / 2) - (@restart_button_size / 2)), y: ((Window.height / 2) - (@restart_button_size / 2)))
+    @restart_button = Image.new(
+        'filer/restart.png',
+        width: @restart_button_size,
+        height: @restart_button_size,
+        x: ((Window.width / 2) - (@restart_button_size / 2)),
+        y: ((Window.height / 2) - (@restart_button_size / 2))
+    )
 
     @restart_game = true    
 

@@ -1,11 +1,10 @@
 def when_game_reset
 
     game_reset_remove
+    game_reset_position
     game_reset_add
     game_reset_variabel
-    game_reset_position
     game_reset_info
-
 
 end
 
@@ -44,55 +43,6 @@ def game_reset_remove
 
 end
 
-def game_reset_add
-
-    tid_reset
-    SONG.play
-    score_text_reset
-
-    @heart1.add
-    @heart2.add
-    @heart3.add
-
-    @sprite.add
-
-    if @game_status > 2
-
-        @start = Square.new(
-            x: 0,
-            y: ((Window.height / 2 ) - @square_size / 2 ),
-            size: @square_size,
-            color: 'white',
-            z: 0
-        )
-        @mol = Square.new(
-            x: Window.width - @square_size,
-            y: ((Window.height / 2 ) - @square_size / 2 ),
-            size: @square_size,
-            color: 'green',
-            z: 0
-        )
-
-    else
-
-        @mol.add
-        @start.add
-
-    end
-
-end
-
-def game_reset_variabel
-
-    @game_status = 1
-    @liv = 3
-    @score = 0
-    
-    balls
-
-end
-
-
 def game_reset_position
 
     @heart1.x = (Window.width - (@heart_size * 1) - 10)
@@ -113,11 +63,59 @@ def game_reset_position
 
 end
 
+def game_reset_add
+
+    tid_reset
+    SONG.play
+
+    @heart1.add
+    @heart2.add
+    @heart3.add
+
+    @start = Square.new(
+        x: 0,
+        y: ((Window.height / 2 ) - @square_size / 2 ),
+        size: @square_size,
+        color: 'white',
+        z: 0
+    )
+    @mol = Square.new(
+        x: Window.width - @square_size,
+        y: ((Window.height / 2 ) - @square_size / 2 ),
+        size: @square_size,
+        color: 'green',
+        z: 0
+    )
+
+    @sprite.add
+
+
+end
+
+def game_reset_variabel
+
+    @game_status = 1
+    @liv = 3
+    @score = 0
+
+    balls #behövde vara här
+    score_text_reset
+
+
+end
+
 def game_reset_info
 
     if @info_status == true
         @info_square.remove
+        @x_info_button.remove
         @info_status = false
     end
 
 end
+
+
+
+
+
+#byter plats efter spriten spawnar så man får ett poäng direkjt

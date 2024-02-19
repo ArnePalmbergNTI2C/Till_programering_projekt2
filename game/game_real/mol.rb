@@ -103,7 +103,14 @@ def status_3_mol_add
 
     SUCCESS.play
     SONG2.play
-    @win_image = Image.new('filer/win.jpg', x: 0, y:0, width: 1100, height: 700, z:75)
+    @win_image = Image.new(
+        'filer/win.jpg',
+        x: 0,
+        y: 0,
+        width: Window.width, 
+        height: Window.height, 
+        z:75
+    )
     @text_tid = Text.new(
         "#{@tid_screen}",
         x: (Window.width / 2) - 50,

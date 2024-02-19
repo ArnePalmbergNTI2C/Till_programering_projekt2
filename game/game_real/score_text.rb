@@ -8,5 +8,6 @@ def score_text_reset
         font: @font,
         size: @text_size,
         color: @text_color,
+        z: 100
     )
 end
