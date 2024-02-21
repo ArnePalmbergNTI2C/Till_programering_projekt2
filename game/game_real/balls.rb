@@ -14,6 +14,8 @@ def horisont_balls
 
     #(x, y_speed, y, x_speed, game_status, radius_angry_balls)
 
+    @radius_angry_balls = 10
+
     maxspeed = 10
     minstspeed = 5 
     @balls = [
@@ -45,6 +47,8 @@ def vertikal_ball
 
     #(x, y_speed, y, x_speed, game_status, radius_angry_balls)
 
+    @radius_angry_balls = 10
+
     maxspeed = 20
     minstspeed = 15
 
@@ -69,21 +73,23 @@ def small_balls
 
     #(x, y_speed, y, x_speed, game_status, radius_angry_balls)
 
+    @radius_angry_balls = 8
+
     speed = 3
     @balls = [
-        Red_balls.new(250, -speed, 450, nil, @game_status, @radius_angry_balls - 2),
-        Red_balls.new(300, speed, 250, nil, @game_status, @radius_angry_balls - 2),
-        Red_balls.new(350, -speed, 450, nil, @game_status, @radius_angry_balls - 2),
-        Red_balls.new(400, speed, 250, nil, @game_status, @radius_angry_balls - 2),
-        Red_balls.new(450, -speed, 450, nil, @game_status, @radius_angry_balls - 2),
-        Red_balls.new(500, speed, 250, nil, @game_status, @radius_angry_balls - 2),
-        Red_balls.new(550, -speed, 450, nil, @game_status, @radius_angry_balls - 2),
-        Red_balls.new(600, speed, 250, nil, @game_status, @radius_angry_balls - 2),
-        Red_balls.new(650, -speed, 450, nil, @game_status, @radius_angry_balls - 2),
-        Red_balls.new(700, speed, 250, nil, @game_status, @radius_angry_balls - 2),
-        Red_balls.new(750, -speed, 450, nil, @game_status, @radius_angry_balls - 2),
-        Red_balls.new(800, speed, 250, nil, @game_status, @radius_angry_balls - 2),
-        Red_balls.new(850, -speed, 450, nil, @game_status, @radius_angry_balls - 2),
+        Red_balls.new(250, -speed, 450, nil, @game_status, @radius_angry_balls),
+        Red_balls.new(300, speed, 250, nil, @game_status, @radius_angry_balls),
+        Red_balls.new(350, -speed, 450, nil, @game_status, @radius_angry_balls),
+        Red_balls.new(400, speed, 250, nil, @game_status, @radius_angry_balls),
+        Red_balls.new(450, -speed, 450, nil, @game_status, @radius_angry_balls),
+        Red_balls.new(500, speed, 250, nil, @game_status, @radius_angry_balls),
+        Red_balls.new(550, -speed, 450, nil, @game_status, @radius_angry_balls),
+        Red_balls.new(600, speed, 250, nil, @game_status, @radius_angry_balls),
+        Red_balls.new(650, -speed, 450, nil, @game_status, @radius_angry_balls),
+        Red_balls.new(700, speed, 250, nil, @game_status, @radius_angry_balls),
+        Red_balls.new(750, -speed, 450, nil, @game_status, @radius_angry_balls),
+        Red_balls.new(800, speed, 250, nil, @game_status, @radius_angry_balls),
+        Red_balls.new(850, -speed, 450, nil, @game_status, @radius_angry_balls),
     ]
 
 end

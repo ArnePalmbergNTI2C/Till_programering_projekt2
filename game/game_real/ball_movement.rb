@@ -1,3 +1,9 @@
+=begin
+
+    
+
+=end
+
 def ball_movement
 
     case @game_status
