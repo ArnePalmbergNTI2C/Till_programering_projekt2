@@ -1,3 +1,5 @@
+#funktion som tar bort en text och sätter tillbaka den. 
+#detta för att score har uppdaterats
 def score_text_reset
 
     @text.remove

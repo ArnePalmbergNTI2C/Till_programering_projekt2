@@ -1,3 +1,7 @@
+#denna funktion körs hela tiden från update do loopen
+#om scorre är max score för sida 1 och om man är på sida 1 körs en funktion 
+#om scorre är max score för sida 2 och om man är på sida 2 körs en annan funktion 
+
 def when_max_score
     
     if @score == @max_score1 && @game_status == 1
@@ -8,6 +12,7 @@ def when_max_score
 
 end
 
+#denna funktionen körs om score är max score för sida 1 och om man är på sida 1
 def when_max_score_1
 
     when_max_score_1_variabel
@@ -19,7 +24,7 @@ def when_max_score_1
 
 end
 
-
+#Varibler ska ändras
 def when_max_score_1_variabel
 
     @game_status = 2
@@ -28,6 +33,7 @@ def when_max_score_1_variabel
 
 end
 
+#saker ska tas bort
 def when_max_score_1_remove
 
     @heart1.remove
@@ -41,6 +47,7 @@ def when_max_score_1_remove
 
 end
 
+#saker ska få en ny position
 def when_max_score_1_position
 
     @heart1.x = (Window.width - (@heart_size * 1) - 10)
@@ -59,7 +66,7 @@ def when_max_score_1_position
     
 end
 
-
+#saker ska läggas till
 def when_max_score_1_add
 
     SUCCESS.play
@@ -75,6 +82,7 @@ def when_max_score_1_add
 
 end
 
+#denna funktionen körs om score är max score för sida 2 och om man är på sida 2
 def when_max_score_2
 
     when_max_score_2_variabel
@@ -84,12 +92,14 @@ def when_max_score_2
 
 end
 
+#game_status/level byter
 def when_max_score_2_variabel
 
     @game_status = 3
 
 end
 
+#saker ska tas bort
 def when_max_score_2_remove
 
     @text.remove
@@ -107,6 +117,8 @@ def when_max_score_2_remove
 
 end
 
+
+#spriten ska få en ny position
 def when_max_score_2_position
 
     @sprite.x = ((Window.width  - @square_size) + ((@square_size - @sprite_storlek) / 2))
@@ -114,6 +126,7 @@ def when_max_score_2_position
 
 end
 
+#saker ska läggas till
 def when_max_score_2_add
 
     SUCCESS.play

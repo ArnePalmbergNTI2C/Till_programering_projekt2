@@ -1,3 +1,6 @@
+#Om en liten restart knapp eller backspace klickas körs denna funktion
+#då ska hela programmet startas om 
+
 def when_game_reset
 
     game_reset_remove
@@ -8,7 +11,7 @@ def when_game_reset
 
 end
 
-
+#vissa grejer ska tas bort beroende på game_status/level och restart_game alltså att man är död och väntar på att starta om
 def game_reset_remove
     if @restart_game == true
 
@@ -43,6 +46,7 @@ def game_reset_remove
 
 end
 
+#saker ska byta position
 def game_reset_position
 
     @heart1.x = (Window.width - (@heart_size * 1) - 10)
@@ -63,9 +67,10 @@ def game_reset_position
 
 end
 
+#saker ska skapas
 def game_reset_add
 
-    tid_reset
+    tid_reset #funktion i filen timer
     SONG.play
 
     @heart1.add
@@ -92,18 +97,23 @@ def game_reset_add
 
 end
 
+#variabler ändras
 def game_reset_variabel
 
     @game_status = 1
     @liv = 3
     @score = 0
 
-    balls #behövde vara här
-    score_text_reset
+    #dessa två behövde var här för att de behövde ske efter variabel bytet men det andra som skapades behövde vara innan variabel bytet
+    #vilka balls som skaps beror på game_status 
+    #vad som ska stå på texten beror på score
+    balls #skapar bollar i filen balls.rb
+    score_text_reset #funktion i filen score_text.rb
 
 
 end
 
+#om info skärmen skulle vara öppen när man resetar stängs den
 def game_reset_info
 
     if @info_status == true
@@ -113,9 +123,3 @@ def game_reset_info
     end
 
 end
-
-
-
-
-
-#byter plats efter spriten spawnar så man får ett poäng direkjt

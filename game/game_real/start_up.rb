@@ -1,3 +1,4 @@
+#denna funktion körs när programmet startar upp
 def start_up
 
     start_up_variabel
@@ -8,20 +9,18 @@ def start_up
 
 end
 
+#varibler skapas och sätts till något
 def start_up_variabel
 
     @restart_button_size = 100
-
-    SONG.loop = true
-    SONG.play
 
     @game_status = 1
     
     @restart_game = false
     @info_status = true
 
-    @max_score1 = 5
-    @max_score2 = 5
+    @max_score1 = 3
+    @max_score2 = 3
 
     @liv = 3
 
@@ -31,7 +30,11 @@ def start_up_variabel
 
 end
 
+#saker skapas
 def start_up_things
+
+    SONG.loop = true
+    SONG.play
 
     @heart_size = 40
     @heart1 = Image.new('filer/heart.png', x: (Window.width - (@heart_size * 1) - 10), y: 10, width: @heart_size, height: @heart_size, z: 5)
@@ -59,10 +62,11 @@ def start_up_things
     @sprite_storlek = 25
     @sprite = Sprite.new('filer/hero.png', clip_width: 214, height: @sprite_storlek, width: @sprite_storlek, y: ((Window.height / 2 ) - @sprite_storlek / 2 ), x: ((@square_size - @sprite_storlek) / 2), z: 2)
 
-    balls
+    balls #kör en funktion i filen balls.rb
     
 end
 
+#sätter lite varibler till en text och sen skapar en text som visar sin score
 def start_up_text
 
     @font = 'filer/text.ttf'
@@ -83,6 +87,8 @@ def start_up_text
 
 end
 
+#tiden som visas på skärmen
+#variabler får värden och en text visas
 def start_up_tid
 
     @text_tid_y = 25
@@ -93,7 +99,7 @@ def start_up_tid
     @tid_udda_eller_even = true
     @text_tid = Text.new(
         "#{@tid_screen}",
-        x: (Window.width / 2) - (@text_size / 2),
+        x: (Window.width / 2) - (@text_tid_size / 2),
         y: @text_tid_y,
         font: @font,
         size: @text_tid_size,
@@ -101,12 +107,14 @@ def start_up_tid
         z:100
     )
 
-    @time_status = Time.now.to_i - @time
-
 
 end
 
+#info skärmen skapas
+#info skäremn ska vara öppen när programmet startar
 def start_up_info 
+
+    @time_status = Time.now.to_i - @time #behövs då info skärmen är öppen när programmet startar
 
     @info_screen_width = 800
     @info_screen_height = 600

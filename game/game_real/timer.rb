@@ -1,7 +1,16 @@
-def time #en funktion som gör att tiden på skärmen ökar med 1 varje sekund
+#funktion time körs hela tiden från update do loopen
+#funktion gör att tiden på skärmen ökar med 1 varje sekund
+#om man inte är på sista sidan och inte har öppnat info bilden ska saker hända
 
-    if @game_status < 4 && @info_status != true #om man inte är på sista sidan och inte info bilden är öppen ska detta hända
-        if Time.now.to_i % 2 == 0 && @tid_udda_eller_even == false #denna if och elsif satesen gör att tiden endsat uppdateras varje sekund. om tiden just nu i integer är jämnt delbart på 2 ocn varaibeln tid_udda_eller_even är false ska detta hända
+#om tiden just nu i integer är ett jämnt tal ska tiden skrivas ut
+#sen när tiden just nu i integer är udda ska tiden skrivas igen
+#detta gör att tiden ökar med 1 varje sekund
+#för att förhindra att skriva ut flera tid texter varje sekund så finns varaiblen tid_udda_eller_even. 
+#denna variabeln byter från true till false för att förhindra att texten skrivs ut flera gånger
+def time
+
+    if @game_status < 4 && @info_status != true
+        if Time.now.to_i % 2 == 0 && @tid_udda_eller_even == false
 
             @tid_screen = Time.now.to_i - @time #tiden på skärmen blir tiden just nu - tiden då tiden på skärmen vara 0
             @tid_udda_eller_even = true #variabeln byter till true för att förhindra att if/elsifsatsen ska köras flera gånger
@@ -38,11 +47,13 @@ def time #en funktion som gör att tiden på skärmen ökar med 1 varje sekund
 
 end
 
-def tid_reset #funktion som startar om tiden på skärmen
-
-    @time = Time.now.to_i #time blir till tiden just nu i integer
-    @tid_screen = 0 #tiden på skärmen blir 0
-    @text_tid.remove #tar bort den gamla texten
+#funktion som startar om tiden på skärmen
+#t.ex när man reset hela banan ska tiden också börja om.
+#när tid texten är på skärmen tar time funktionen över igen
+def tid_reset 
+    @time = Time.now.to_i
+    @tid_screen = 0
+    @text_tid.remove
     @text_tid = Text.new(
         "#{@tid_screen}",
         x: (Window.width / 2) - (@text_size / 2),
@@ -51,6 +62,6 @@ def tid_reset #funktion som startar om tiden på skärmen
         size: @text_tid_size,
         color: @text_color,
         z:100
-    ) #gör en ny text
+    )
 
 end

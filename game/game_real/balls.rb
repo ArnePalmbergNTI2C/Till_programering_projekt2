@@ -1,3 +1,5 @@
+#när bollar skapas körs funktionen. 
+#beronde på game_status/level ska olika bollar skapas
 def balls
     case @game_status
     when 1
@@ -12,12 +14,12 @@ end
 
 def horisont_balls
 
-    #(x, y_speed, y, x_speed, game_status, radius_angry_balls)
-
     @radius_angry_balls = 10
 
     maxspeed = 10
     minstspeed = 5 
+
+    #(x, y_speed, y, x_speed, game_status, radius_angry_balls)
     @balls = [
         Red_balls.new(100, rand(minstspeed..maxspeed), 10, nil, @game_status, @radius_angry_balls),
         Red_balls.new(150, rand(-maxspeed..-minstspeed), Window.height-10, nil, @game_status, @radius_angry_balls),
@@ -45,13 +47,12 @@ end
 
 def vertikal_ball
 
-    #(x, y_speed, y, x_speed, game_status, radius_angry_balls)
-
     @radius_angry_balls = 10
 
     maxspeed = 20
     minstspeed = 15
 
+    #(x, y_speed, y, x_speed, game_status, radius_angry_balls)
     @balls = [
         Red_balls.new(10, nil, 100, rand(minstspeed..maxspeed), @game_status, @radius_angry_balls),
         Red_balls.new(Window.width-10, nil, 150, rand(-maxspeed..-minstspeed), @game_status, @radius_angry_balls),
@@ -71,11 +72,11 @@ end
 
 def small_balls
 
-    #(x, y_speed, y, x_speed, game_status, radius_angry_balls)
-
     @radius_angry_balls = 8
 
     speed = 3
+
+    #(x, y_speed, y, x_speed, game_status, radius_angry_balls)
     @balls = [
         Red_balls.new(250, -speed, 450, nil, @game_status, @radius_angry_balls),
         Red_balls.new(300, speed, 250, nil, @game_status, @radius_angry_balls),
