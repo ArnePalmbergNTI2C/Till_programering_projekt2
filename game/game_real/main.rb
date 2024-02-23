@@ -31,7 +31,6 @@ SONG2 = Music.new('filer/vinst.mp3')
 HIT = Sound.new('filer/hit.mp3') 
 SUCCESS = Sound.new('filer/success.mp3') 
 SMALL_SUCCESS = Sound.new('filer/small_success.mp3')
-SCARY = Sound.new('filer/scary.mp3') 
 
 #klassen game. Allting som inte är de röda bollarna skapas och sker här
 class Game

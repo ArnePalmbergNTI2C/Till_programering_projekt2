@@ -19,8 +19,8 @@ def start_up_variabel
     @restart_game = false
     @info_status = true
 
-    @max_score1 = 3
-    @max_score2 = 3
+    @max_score1 = 5
+    @max_score2 = 5
 
     @liv = 3
 
@@ -34,7 +34,7 @@ end
 def start_up_things
 
     SONG.loop = true
-    SONG.play
+
 
     @heart_size = 40
     @heart1 = Image.new('filer/heart.png', x: (Window.width - (@heart_size * 1) - 10), y: 10, width: @heart_size, height: @heart_size, z: 5)
