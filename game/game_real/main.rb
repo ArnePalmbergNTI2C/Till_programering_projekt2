@@ -126,7 +126,7 @@ game = Game.new
 #här är det bara spritens rörelse med knapparna "w" "a" "s" "d"
 on :key_held do |event|
 
-    speed = 5
+    speed = 4
 
     #om restart_game och info_status variblerna i klassen game är false ska detta hända. 
     #om restart_game är true betyder det att  man har dött och väntar på att t.ex starta om. 
