@@ -49,8 +49,8 @@ def vertikal_ball
 
     @radius_angry_balls = 10
 
-    maxspeed = 20,0 #float
-    minstspeed = 15,0 #float
+    maxspeed = 20.0 #float
+    minstspeed = 15.0 #float
 
     #(x, y_speed, y, x_speed, game_status, radius_angry_balls)
     @balls = [
