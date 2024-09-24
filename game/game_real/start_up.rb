@@ -19,8 +19,8 @@ def start_up_variabel
     @restart_game = false
     @info_status = true
 
-    @max_score1 = 5
-    @max_score2 = 5
+    @max_score1 = 3
+    @max_score2 = 3
 
     @liv = 3
 
